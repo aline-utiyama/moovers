@@ -35,6 +35,7 @@ gem 'simple_form'
 # Added gems
 gem 'devise'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'pundit'
 
 group :development, :test do
   gem 'pry-byebug'
