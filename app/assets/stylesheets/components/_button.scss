@@ -9,6 +9,13 @@ a {text-decoration: none;}
   font-weight: bolder;
   border-radius: 16px;
   font-family: $body-font;
+  margin: 4px;
+
+}
+
+.main-button:hover {
+  text-decoration: none;
+  color: white;
 }
 
 .second-button {
@@ -19,4 +26,9 @@ a {text-decoration: none;}
   font-weight: bolder;
   border-radius: 16px;
   font-family: $body-font;
+  margin: 4px;
+}
+
+.second-button:hover {
+  text-decoration: none;
 }
