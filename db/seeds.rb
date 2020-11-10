@@ -22,9 +22,10 @@ puts "Creating Users and Movers and Bookings..."
   Mover.create!(
     user: user,
     name: Faker::Name.name,
+    # size_of_car: Mover::SIZE_OF_CARS.sample,
     type_of_car: Mover::CARS.sample,
-    description: "mover",
-    price: 5000,
+    description: Faker::ChuckNorris.fact,
+    price: Faker::Number.number(digits: 4),
   )
 end
 

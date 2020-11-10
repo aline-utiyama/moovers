@@ -25,11 +25,12 @@ class BookingsController < ApplicationController
     if @booking.update(mover.params)
       redirect_to @booking
     else
-      render 'edit'
+      render :edit
     end
   end
     
-  private booking_params
+  private 
+  def booking_params
     params.require(:booking).permit(:name, :type_of_car, :description, :price)
   end
 end

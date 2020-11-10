@@ -1,2 +1,2 @@
-class Mover::BookingsController < ApplicationController
+class Mover::BookingsController < ApplicationController  
 end
