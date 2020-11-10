@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row mover-main-card">
+    <% if policy(Mover).show? %>
+    <div>
+      <div class="mover">
+        <img class="avatar-xlarge" src="https://png.pngtree.com/png-vector/20190702/ourmid/pngtree-cute-cow-vector-logo-illustration-png-image_1535629.jpg" alt="avatar">
+        <h2><%= @mover.name %></h2>
+      </div>
+    </div>
+    <div class="mover-card">
+      <p><i class="fas fa-car"> </i> Type of car: <%= @mover.type_of_car %></p>
+      <p><i class="fas fa-yen-sign"> </i> Price: ¥<%= @mover.price %></p>
+      <p><i class="fas fa-info-circle"> </i> Description: <%= @mover.description %></p>
+    </div>
+    <% end %>
+  </div>
+</div>
