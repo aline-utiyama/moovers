@@ -1,0 +1,11 @@
+<div class="container booking-form">
+  <h2>Booking</h2>
+  <%= simple_form_for [@mover, @booking] do |f| %>
+    <%= f.input :date_time %>
+    <%= f.input :start_point %>
+    <%= f.input :end_point %>
+    <%= f.input :description %>
+    <%= f.submit class: 'main-button' %>
+  <% end %>
+
+</div>
