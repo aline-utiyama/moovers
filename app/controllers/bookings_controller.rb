@@ -1,4 +1,12 @@
 class BookingsController < ApplicationController
+  
+  def index
+    @bookings = Booking.all
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+  end
 
   def create
     @book = Booking.new(booking_params)
@@ -11,20 +19,16 @@ class BookingsController < ApplicationController
     end
   end
   
-  def index
-    
-  end
-
   def update
-    
-  end
-  
+    @booking = Booking.find(params[:id])
 
-  # def mover?
+    if @booking.update(mover.params)
+      redirect_to @booking
+    else
+      render 'edit'
+    end
+  end
     
-  # end
-  
-  
   private booking_params
     params.require(:booking).permit(:name, :type_of_car, :description, :price)
   end

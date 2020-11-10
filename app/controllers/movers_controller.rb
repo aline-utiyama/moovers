@@ -1,10 +1,11 @@
 class MoversController < ApplicationController
+  
   def index
     @movers = Mover.all
   end
   
   def show
-    @movers = Mover.find(params[:id])
+    @mover = Mover.find(params[:id])
   end
 
   def new
