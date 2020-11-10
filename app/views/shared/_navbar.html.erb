@@ -22,7 +22,7 @@
           <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://previews.123rf.com/images/lar01joka/lar01joka1712/lar01joka171200130/90908712-avatar-of-a-cow.jpg" />
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">Update your account</a>
-            <%= link_to "Sign-out", destroy_user_session_path(current_user), class:"dropdown-item" %>
+            <%= link_to "Sign-out", destroy_user_session_path, class:"dropdown-item", method: :delete%>
           </div>
         </li>
       </ul>
