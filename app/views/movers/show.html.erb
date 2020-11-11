@@ -11,6 +11,7 @@
       <p><i class="fas fa-car"> </i> Type of car: <%= @mover.type_of_car %></p>
       <p><i class="fas fa-yen-sign"> </i> Price: ¥<%= @mover.price %></p>
       <p><i class="fas fa-info-circle"> </i> Description: <%= @mover.description %></p>
+      <%= link_to 'Book now', new_mover_booking_path(@mover), class: 'main-button' %>
     </div>
     <% end %>
   </div>
