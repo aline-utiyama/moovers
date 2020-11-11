@@ -9,6 +9,7 @@ class MoversController < ApplicationController
 
   def show
     @mover = Mover.find(params[:id])
+    @booking = Booking.new
     authorize @mover
   end
 
