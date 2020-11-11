@@ -1,7 +1,8 @@
 class BookingsController < ApplicationController
   
   def index
-    @bookings = Booking.all
+    @bookings = policy_scope(Booking).order(created_at: :desc)
+    @booking = policy_scope(Booking)
   end
 
   def show
@@ -25,11 +26,13 @@ class BookingsController < ApplicationController
     if @booking.update(mover.params)
       redirect_to @booking
     else
-      render 'edit'
+      render :edit
     end
   end
     
-  private booking_params
+  private 
+  
+  def booking_params
     params.require(:booking).permit(:name, :type_of_car, :description, :price)
   end
 end
