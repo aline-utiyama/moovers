@@ -37,15 +37,9 @@ class BookingsController < ApplicationController
       render :edit
     end
   end
-<<<<<<< HEAD
     
-  private 
-  
-=======
-
   private
-
->>>>>>> master
+  
   def booking_params
     params.require(:booking).permit(:name, :type_of_car, :description, :price)
   end
