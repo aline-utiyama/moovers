@@ -20,9 +20,9 @@
             <div>
               <h2><%= mover.type_of_car %></h2><hr>
               <p style="margin-right: 12px"><strong><em>Driver</em></strong>: <%= mover.name %></p><br>
-              <a><%= link_to 'Show', mover_path(mover), class:'main-button'%></a>
+              <h2 class="card-trip-pricing">¥<%= mover.price %> / 10 km</h2>
             </div>
-            <h2 class="card-trip-pricing">¥<%= mover.price %> / km</h2>
+              <a><%= link_to 'Book', mover_path(mover), class:'main-button'%></a>
             <img src="https://www.biography.com/.image/t_share/MTQ3NjM5MTEzMTc5MjEwODI2/eminem_photo_by_dave_j_hogan_getty_images_entertainment_getty_187596325.jpg" class="card-trip-user avatar-bordered" />
           </div>
         </div>
