@@ -85,35 +85,54 @@
 
 .card-booking-wrap{
   background-color:white;
-  margin: 32px;
-  border:1px solid black;
+  margin: 32px auto;
+  border:1px solid lightgray;
+  border-radius: 8px;
+  width: 600px;
+
   p {
     margin: 0;
   }
-} 
+}
 
 .card-booking-table{
   display:flex;
   justify-content: space-around;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .table-box{
   background-color: white;
   border: 1px solid black;
   width: 100%;
-  
+
 }
 .inner-element{
   padding: 8px 16px;
 }
 
 .destination {
-  display:flex;
-  flex-direction: column;
-  align-items:center;
+
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin: 8px;
+
+  p {
+    background-color: #f8f8f8;
+  }
 }
 
+.label {
+  font-size: 12px;
+  color: darkgrey;
+}
 
+.mover-info {
+  padding: 0px 4px 16px 4px;
+}
 
 // .table-box-right{
 //   background-color: white;
@@ -124,12 +143,14 @@
 
 .card-inner-table{
   display:flex;
+  padding: 0px 24px 24px 24px;
 
 }
 
 .card-inner-table img{
   height: 100%;
   width: 100%;
+  border-radius: 8px;
 }
 
 .card-image-wrap {
@@ -139,6 +160,9 @@
 .card-info {
   flex:50%;
   padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 
