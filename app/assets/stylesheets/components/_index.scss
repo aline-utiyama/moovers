@@ -3,7 +3,21 @@
 @import "avatar";
 @import "banner";
 @import "button";
+@import "card";
+@import "footer";
 @import "navbar";
 @import "movers-card";
+@import "mover-main-card";
+@import "forms";
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,600&family=Raleway&display=swap');
+
+body {
+  background-color: #ececec54;
+  color: #484747;
+}
+
+i {
+  color: #4aa904;
+}
+
