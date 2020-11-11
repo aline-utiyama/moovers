@@ -1,18 +1,26 @@
 <div class="container">
   <div class="row mover-main-card">
     <% if policy(Mover).show? %>
-    <div>
-      <div class="mover">
-        <img class="avatar-xlarge" src="https://png.pngtree.com/png-vector/20190702/ourmid/pngtree-cute-cow-vector-logo-illustration-png-image_1535629.jpg" alt="avatar">
-        <h2><%= @mover.name %></h2>
+      <div>
+        <div class="mover-info row justify-content-around align-items-center">
+          <div class="mover">
+            <img class="avatar-xlarge" src="https://www.biography.com/.image/t_share/MTQ3NjM5MTEzMTc5MjEwODI2/eminem_photo_by_dave_j_hogan_getty_images_entertainment_getty_187596325.jpg">
+            <h2><%= @mover.name %></h2>
+          </div>
+          <div class="car-img">
+            <img src="https://www.tciteam.com/wp-content/uploads/2017/04/Secure-Your-Load.jpg" alt="">
+          </div>
+        </div>
+        <div class="mover-card">
+          <p><i class="fas fa-car"> </i> Type of car: <%= @mover.type_of_car %></p>
+          <p><i class="fas fa-yen-sign"> </i> Price: ¥<%= @mover.price %></p>
+          <p><i class="fas fa-info-circle"> </i> Description: <%= @mover.description %></p>
+        </div>
       </div>
-    </div>
-    <div class="mover-card">
-      <p><i class="fas fa-car"> </i> Type of car: <%= @mover.type_of_car %></p>
-      <p><i class="fas fa-yen-sign"> </i> Price: ¥<%= @mover.price %></p>
-      <p><i class="fas fa-info-circle"> </i> Description: <%= @mover.description %></p>
-      <%= link_to 'Book now', new_mover_booking_path(@mover), class: 'main-button' %>
-    </div>
+      <div>
+        <%= render 'bookings/new' %>
+      </div>
     <% end %>
   </div>
+
 </div>
