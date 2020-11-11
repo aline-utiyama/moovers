@@ -12,5 +12,4 @@ class MoverPolicy < ApplicationPolicy
   def show?
     true
   end
-  
 end
