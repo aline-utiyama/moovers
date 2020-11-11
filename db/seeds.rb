@@ -11,7 +11,7 @@ User.destroy_all
 Mover.destroy_all
 
 puts "Creating Users and Movers and Bookings..."
-50.times do 
+50.times do
   user = User.create!(
     name: Faker::Name.name,
     email: Faker::Internet.email,
@@ -23,8 +23,7 @@ puts "Creating Users and Movers and Bookings..."
     user: user,
     name: Faker::Name.name,
     # size_of_car: Mover::SIZE_OF_CARS.sample,
-    type_of_car: Faker::Vehicle.manufacture, 
-    type_of_car: Faker::Vehicle.make_and_model
+    type_of_car: Faker::Vehicle.make_and_model,
     description: Faker::ChuckNorris.fact,
     price: Faker::Number.number(digits: 4),
   )
@@ -42,7 +41,7 @@ end
     date_time: DateTime.now + rand(5..10).days,
     start_point:Faker::Address.street_address,
     end_point:Faker::Address.street_address,
-    description: "description", 
+    description: "description",
   )
   user = User.create!(
     name: "Aline",
@@ -56,7 +55,7 @@ end
     date_time: DateTime.now + rand(5..10).days,
     start_point:Faker::Address.street_address,
     end_point:Faker::Address.street_address,
-    description: "description", 
+    description: "description",
   )
   user = User.create!(
     name: "Alex",
@@ -70,7 +69,7 @@ end
     date_time: DateTime.now + rand(5..10).days,
     start_point:Faker::Address.street_address,
     end_point:Faker::Address.street_address,
-    description: "description", 
+    description: "description",
   )
 
 
