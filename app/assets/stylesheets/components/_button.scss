@@ -32,3 +32,21 @@ a {text-decoration: none;}
 .second-button:hover {
   text-decoration: none;
 }
+
+.third-button {
+  background-color: #white;
+  color:#5466A6;
+  border: 1px solid #5466A6 ;
+  padding: 8px 16px;
+  font-weight: bolder;
+  border-radius: 16px;
+  font-family: $body-font;
+  margin: 4px;
+}
+
+.third-button:hover {
+  text-decoration: none;
+  color: #5466A6;
+}
+
+

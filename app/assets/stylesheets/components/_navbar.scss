@@ -2,6 +2,7 @@
   justify-content: space-between;
   background: white;
   position: fixed;
+  z-index: 1;
   width: 100%;
   top:0
 }
@@ -13,5 +14,18 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.nav-item {
+  display: flex;
+  align-items: center;
+
+  i {
+  color: #b7b6b6;
+  font-size: 32px;
+  margin: 0 8px;
+  display: absolute;
+  }
+}
+
 
 
