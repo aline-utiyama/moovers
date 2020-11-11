@@ -1,0 +1,45 @@
+<p id="notice"><%#= notice %></p>
+<%# <h1>Lisf of Movers</h1> %>
+
+
+<p>Current User email: <%= current_user.email %></p>
+<p>Current User ID: <%= current_user.id %></p><% if policy(Mover).index? %>
+  <%= link_to "List all Movers", movers_path %>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+<h1>All Movers</h1>
+
+<div class="container">
+  <div class="cards">
+    <% @movers.each do |mover| %>
+      <div class="card-trip">
+        <div class="card-trip">
+          <img src="https://images2.fanpop.com/image/photos/12700000/Spongebob-Truck-spongebob-squarepants-12795905-1024-718.jpg" />
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= mover.type_of_car %></h2>
+              <p><b><%= mover.description %></b></p>
+              <a><%= link_to 'Show', mover_path(mover), class:'btn btn-primary'%></a>
+            </div>
+            <p style="margin-right: 12px"><%= mover.name %></p>
+            <h2 class="card-trip-pricing">¥<%= mover.price %> / km</h2>
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+          </div>
+        </div>
+      </div>
+    
+    
+      <% if policy(mover).edit? %>
+        <td><%= link_to 'Edit', edit_mover_path(mover) %></td>
+      <% end %>
+      <% if policy(mover).destroy? %>
+        <td><%= link_to 'Destroy', mover, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    <% end %>
+  </div>
+</div>  
+
+<% if policy(Mover).new? %>
+  <%= link_to 'New Mover', new_mover_path %>
+<% end %>

@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  
+
   def index
     @bookings = policy_scope(Booking).order(created_at: :desc)
     @booking = policy_scope(Booking)
@@ -9,17 +9,25 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
+  def new
+    @mover = Mover.find(params[:mover_id])
+    @booking = Booking.new
+    authorize @booking
+  end
+
   def create
-    @book = Booking.new(booking_params)
-    @booking = Booking.find(params[:booking_id])
-    @booking.user = @user
-    if @booking.after_save
-      redirect_to users_path
+    @mover = Mover.find(params[:mover_id])
+    @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    @booking.mover = @mover
+    authorize @booking
+    if @booking.save
+      redirect_to bookings_path
     else
       render :new
     end
   end
-  
+
   def update
     @booking = Booking.find(params[:id])
 
@@ -30,7 +38,7 @@ class BookingsController < ApplicationController
     end
   end
     
-  private 
+  private
   
   def booking_params
     params.require(:booking).permit(:name, :type_of_car, :description, :price)
