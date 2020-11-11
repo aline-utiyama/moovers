@@ -14,11 +14,17 @@
   background-color: white;
   border-radius: 16px;
   padding: 16px;
+  position: relative;
 
   p {
     background-color: #F4F4F4;
     padding: 8px;
     border-radius: 4px;
+  }
+
+  a {
+    position: absolute;
+    right: 16px;
   }
 }
 
