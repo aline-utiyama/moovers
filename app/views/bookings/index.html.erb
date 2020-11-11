@@ -5,7 +5,7 @@
     <div class="card-booking-wrap">
       <div class="card-booking-table">
         <div class="inner-element">
-          <p> <%= booking.date_time.strftime("%b %e, %l:%M %p") %></p>
+          <p> <%= booking.date_time&.strftime("%b %e, %l:%M %p") %></p>
         </div>
         <div class="inner-element">
           <p>Status: <%= booking.status %></p>
