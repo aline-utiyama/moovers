@@ -1,7 +1,7 @@
 <div class="container booking-form">
   <h2>Booking</h2>
   <%= simple_form_for [@mover, @booking] do |f| %>
-    <%= f.input :date_time %>
+    <%= f.input :date_time, html5: true %>
     <%= f.input :start_point %>
     <%= f.input :end_point %>
     <%= f.input :description %>
