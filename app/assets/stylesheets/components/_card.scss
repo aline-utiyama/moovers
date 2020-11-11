@@ -83,6 +83,65 @@
   padding: 16px;
 }
 
+.card-booking-wrap{
+  background-color:white;
+  margin: 32px;
+  border:1px solid black;
+  p {
+    margin: 0;
+  }
+} 
+
+.card-booking-table{
+  display:flex;
+  justify-content: space-around;
+}
+
+.table-box{
+  background-color: white;
+  border: 1px solid black;
+  width: 100%;
+  
+}
+.inner-element{
+  padding: 8px 16px;
+}
+
+.destination {
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+}
+
+
+
+// .table-box-right{
+//   background-color: white;
+//   border: 1px,solid,black;
+//   width: 50%;
+//   text-align:right;
+// }
+
+.card-inner-table{
+  display:flex;
+
+}
+
+.card-inner-table img{
+  height: 100%;
+  width: 100%;
+}
+
+.card-image-wrap {
+  flex: 50%;
+}
+
+.card-info {
+  flex:50%;
+  padding: 8px 16px;
+}
+
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
@@ -100,7 +159,7 @@
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .cards {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 

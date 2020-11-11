@@ -41,7 +41,6 @@ end
     date_time: DateTime.now + rand(5..10).days,
     start_point:Faker::Address.street_address,
     end_point:Faker::Address.street_address,
-    status: "",
     description: "description", 
   )
   user = User.create!(
@@ -56,7 +55,6 @@ end
     date_time: DateTime.now + rand(5..10).days,
     start_point:Faker::Address.street_address,
     end_point:Faker::Address.street_address,
-    status: "",
     description: "description", 
   )
   user = User.create!(
@@ -71,7 +69,6 @@ end
     date_time: DateTime.now + rand(5..10).days,
     start_point:Faker::Address.street_address,
     end_point:Faker::Address.street_address,
-    status: "",
     description: "description", 
   )
 

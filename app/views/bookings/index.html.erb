@@ -1,17 +1,45 @@
 <h1>All Bookings  </h1>
 
+
+
+
 <% @bookings.each do |booking| %>
-<div class="card-product">
-  <img src="https://cdn2.iconfinder.com/data/icons/iconslandtransport/PNG/256x256/TractorUnitBlack.png" />
-  <div class="card-product-infos">
-    <h2><%= Booking.mover. %></h2>
-    <h2> Mover Name: <%= booking.mover.name %></h2>
-    <p>We'll start at <%= booking.start_point %> at <%= booking.date_time %></p>
+<div class="container">
+  <div class="card-booking-wrap">
+    <div class="card-booking-table">
+      <div class="inner-element">
+        <p> <%= booking.date_time.strftime("%b %e, %l:%M %p") %></p>
+      </div>
+      <div class="inner-element">
+        <p>Status: <%= booking.status %></p>
+      </div>
+    </div>     
+    <div class="destination">
+    <p>From <%= booking.start_point %></p>
+    <p>To <%= booking.end_point %></p>
+    </div>  
+    <div class="card-inner-table">
+      <div class="card-image-wrap">
+      <img src="https://images2.fanpop.com/image/photos/12700000/Spongebob-Truck-spongebob-squarepants-12795905-1024-718.jpg" alt="Truck">
+      </div>
+      <div class="card-info">
+      <h5><%= booking.mover.name %></h5>
+      <p><%= booking.mover.type_of_car %></p>
+      <p><strong>¥<%= booking.mover.price %></strong></p>
+      </div>
+    </div>
+
+    </div>
   </div>
 </div>
 
-
 <% end %>
+
+
+
+
+
+
 
 
 
