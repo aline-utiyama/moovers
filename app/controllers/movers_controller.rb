@@ -2,7 +2,7 @@ class MoversController < ApplicationController
 
   def index
     # @movers = Mover.all
-    @movers = policy_scope(Mover).order(created_at: :desc)
+    @movers = policy_scope(Mover).order(created_at: :asc)
     # authorize @mover
     @mover = policy_scope(Mover)
   end
