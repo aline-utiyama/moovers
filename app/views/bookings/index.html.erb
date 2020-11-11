@@ -5,24 +5,30 @@
     <div class="card-booking-wrap">
       <div class="card-booking-table">
         <div class="inner-element">
-          <p> <%= booking.date_time&.strftime("%b %e, %l:%M %p") %></p>
+          <p><div class="label">Date: </div><strong><%= booking.date_time&.strftime("%b %e, %l:%M %p") %></strong></p>
         </div>
         <div class="inner-element">
-          <p>Status: <%= booking.status %></p>
+          <p class="status-button"><%= booking.status %></p>
         </div>
       </div>
       <div class="destination">
-      <p>From <%= booking.start_point %></p>
-      <p>To <%= booking.end_point %></p>
+      <p><div class="label">From: </div><strong><%= booking.start_point %></strong></p>
+      <p><div class="label">To: </div><strong><%= booking.end_point %></strong></p>
       </div>
       <div class="card-inner-table">
         <div class="card-image-wrap">
-        <img src="https://images2.fanpop.com/image/photos/12700000/Spongebob-Truck-spongebob-squarepants-12795905-1024-718.jpg" alt="Truck">
+        <img src="https://www.tciteam.com/wp-content/uploads/2017/04/Secure-Your-Load.jpg">
         </div>
         <div class="card-info">
-        <h5><%= booking.mover.name %></h5>
-        <p><%= booking.mover.type_of_car %></p>
-        <p><strong>¥<%= booking.mover.price %></strong></p>
+          <div class="mover-info">
+            <h5><%= booking.mover.name %></h5>
+            <p><div class="label">Type of car: </div><strong><%= booking.mover.type_of_car %></strong></p>
+            <p><div class="label">Price: </div><strong>¥<%= booking.mover.price %></strong></p>
+            <p><div class="label">Description: </div><%= booking.mover.description %></p>
+          </div>
+          <div>
+            <%= link_to 'Details', bookings_path, class: 'third-button' %>
+          </div>
         </div>
       </div>
       </div>
