@@ -1,7 +1,8 @@
 class BookingsController < ApplicationController
 
   def index
-    @bookings = Booking.all
+    @bookings = policy_scope(Booking).order(created_at: :desc)
+    @booking = policy_scope(Booking)
   end
 
   def show
@@ -36,9 +37,9 @@ class BookingsController < ApplicationController
       render :edit
     end
   end
-
+    
   private
-
+  
   def booking_params
     params.require(:booking).permit(:name, :type_of_car, :description, :price)
   end

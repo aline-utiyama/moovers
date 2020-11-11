@@ -4,6 +4,10 @@ class BookingPolicy < ApplicationPolicy
       scope.all
     end
   end
+  
+  def index?
+    true
+  end
 
   def new?
     true
@@ -12,6 +16,5 @@ class BookingPolicy < ApplicationPolicy
   def create?
     true
   end
-
 
 end
