@@ -1,7 +1,5 @@
 <p id="notice"><%#= notice %></p>
 <%# <h1>Lisf of Movers</h1> %>
-
-
 <p>Current User email: <%= current_user.email %></p>
 <p>Current User ID: <%= current_user.id %></p><% if policy(Mover).index? %>
   <%#= link_to "List all Movers", movers_path %>
@@ -31,7 +29,9 @@
           <div class="card-trip-infos">
             <div>
               <h2><%= mover.name %></h2><hr>
-              <p style="margin-right: 12px"><strong><em>Driver</em></strong>: <%= mover.user.name %></p><br>
+              <p><i class="fas fa-user-circle"></i></i> <%= mover.user.name %></p>
+              <p><i class="fas fa-map-marked-alt"></i> <%= mover.address %></p>
+              <br>
               <h2 class="card-trip-pricing">¥<%= mover.price %> / 10 km</h2>
             </div>
               <a><%= link_to 'Book', mover_path(mover), class:'main-button'%></a>
