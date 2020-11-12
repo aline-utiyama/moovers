@@ -15,11 +15,13 @@ class MoversController < ApplicationController
 
   def new
     @mover = Mover.new
+    authorize @mover
   end
 
   def create
     @mover = Mover.new(mover_params)
     @mover.user = current_user #anytime it is logged in, call it current_user
+    authorize @mover
     if @mover.save
       redirect_to mover_path(@mover)
     else
