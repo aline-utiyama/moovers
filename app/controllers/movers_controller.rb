@@ -40,6 +40,6 @@ class MoversController < ApplicationController
   private
 
   def mover_params
-    params.require(:mover).permit(:name, :type_of_car, :description, :price, :image)
+    params.require(:mover).permit(:name, :type_of_car, :description, :price, :image, :address)
   end
 end
