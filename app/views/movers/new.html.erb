@@ -1,9 +1,10 @@
 <div class="container new-mover">
   <%= simple_form_for @mover do |f| %>
-    <%= f.input :name %>
+    <%= f.input :name, label: 'Car Name' %>
     <%= f.input :type_of_car, collection: Mover::SIZE_OF_CARS%>
     <%= f.input :description %>
     <%= f.input :price %>
+    <%= f.input :image, as: :file, label: 'Car Image' %>
     <%= f.submit class: 'main-button' %>
   <% end %>
 </div>
