@@ -1,3 +1,54 @@
-<div class="container">
-  <h1>Bookings</h1>
+
+<div class="container my-5">
+  <% @bookings.each do |booking| %>
+  <div class="container my-3">
+    <div class="minimal-container-wrap">
+      <div class="minimal-container">
+        <div class="element-container">
+          <p><%= booking.date_time %></p>
+          <p><%= booking.user.name %></p>
+          <p><%= booking.start_point %></p>
+          <p><%= booking.end_point %></p>
+        </div>
+        <div class="element-container">
+          <p><%= booking.status %></p>
+          <p>¥<%= booking.mover.price %></p> 
+          <button type="button" class="second-button toggle-btn" data-id="<%= booking.id %>">Details</button>
+        </div>
+      </div>
+    </div>
+    <div class="description-wrapper d-none" data-booking-id="<%= booking.id %>">
+      <div class="description-top">
+        <p><%= booking.description %></p>
+        <p>Distance</p>
+      </div>
+      <div class="description-bottom">
+        <%= link_to "Call the user", "", class: "second-button"  %>
+        <%= link_to "Chat with the user", "", class: "second-button" %>
+        <div class="accept">
+          <%= simple_form_for booking do |f|%>
+            <%= f.input :status, input_html: { value: 'Accepted'}, as: :hidden %>
+            <%= f.submit "Accept", class: 'main-button' %>
+          <% end %>
+          <%= simple_form_for booking do |f|%>
+            <%= f.input :status, input_html: { value: 'Rejected'}, as: :hidden %>
+            <%= f.submit "Reject", class: 'main-button' %>
+          <% end %>          
+        </div>
+      </div>
+    </div>
+  </div>
+      
+  <% end  %>
+
 </div>
+
+
+
+
+
+
+
+
+
+

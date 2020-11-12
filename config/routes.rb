@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   namespace :mover do
-    resources :bookings, only: [:index]
+    resources :bookings, only: [:index, :update]
   end
 
   resources :bookings, only: [:index, :update]

@@ -30,17 +30,18 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
+    authorize @booking
 
-    if @booking.update(mover.params)
-      redirect_to @booking
+    if @booking.update(booking_params)
+      redirect_to "/mover/bookings"
     else
-      render :edit
+      render "/mover/bookings"
     end
   end
 
   private
 
   def booking_params
-    params.require(:booking).permit(:name, :type_of_car, :description, :price, :date_time, :start_point, :end_point)
+    params.require(:booking).permit(:name, :type_of_car, :description, :price, :status, :date_time, :start_point, :end_point)
   end
 end
