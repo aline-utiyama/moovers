@@ -11,15 +11,27 @@
 <h1>Find Movers around!</h1>
 
 <div class="container">
+  <div>
+    <%= form_with url: movers_path, method: :get, local: true do %>
+      <%= select_tag :query, options_for_select(Mover::SIZE_OF_CARS, params[:query]),
+        class: 'form-control'
+      %>
+      <%= submit_tag "Search", class: 'third-button' %>
+    <% end %>
+  </div>
   <div class="cards">
     <% @movers.each do |mover| %>
       <div>
         <div class="card-trip">
-          <img src="https://www.tciteam.com/wp-content/uploads/2017/04/Secure-Your-Load.jpg" />
+          <% if mover.image.attached? %>
+            <%= cl_image_tag mover.image.key %>
+          <% else %>
+            <img src="https://www.tciteam.com/wp-content/uploads/2017/04/Secure-Your-Load.jpg" />
+          <% end %>
           <div class="card-trip-infos">
             <div>
-              <h2><%= mover.type_of_car %></h2><hr>
-              <p style="margin-right: 12px"><strong><em>Driver</em></strong>: <%= mover.name %></p><br>
+              <h2><%= mover.name %></h2><hr>
+              <p style="margin-right: 12px"><strong><em>Driver</em></strong>: <%= mover.user.name %></p><br>
               <h2 class="card-trip-pricing">¥<%= mover.price %> / 10 km</h2>
             </div>
               <a><%= link_to 'Book', mover_path(mover), class:'main-button'%></a>
@@ -27,8 +39,6 @@
           </div>
         </div>
       </div>
-    
-    
       <% if policy(mover).edit? %>
         <td><%= link_to 'Edit', edit_mover_path(mover) %></td>
       <% end %>
@@ -37,8 +47,8 @@
       <% end %>
     <% end %>
   </div>
-</div>  
+</div>
 
 <% if policy(Mover).new? %>
-  <%= link_to 'New Mover', new_mover_path %>
+  <% link_to 'New Mover', new_mover_path %>
 <% end %>
