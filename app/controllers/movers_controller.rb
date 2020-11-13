@@ -19,6 +19,7 @@ class MoversController < ApplicationController
     @mover = Mover.find(params[:id])
     @booking = Booking.new
     authorize @mover
+
     @markers = [
       {
         lat: @mover.latitude,

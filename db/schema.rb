@@ -62,9 +62,9 @@ ActiveRecord::Schema.define(version: 2020_11_13_015505) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "address"
     t.float "latitude"
     t.float "longitude"
-    t.string "address"
     t.index ["user_id"], name: "index_movers_on_user_id"
   end
 
