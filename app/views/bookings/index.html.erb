@@ -26,8 +26,14 @@
       </p>
     </div>
     <div class="card-inner-table">
+
       <div class="card-image-wrap">
+        <% if booking.mover.image.attached? %>
+            <%= cl_image_tag booking.mover.image.key %>
+          <% else %>
+
         <img src="https://www.tciteam.com/wp-content/uploads/2017/04/Secure-Your-Load.jpg">
+        <% end %>
       </div>
       <div class="card-info">
         <div class="mover-info">
