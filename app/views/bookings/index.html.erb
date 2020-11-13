@@ -1,7 +1,7 @@
 <h1>All Bookings </h1>
 
 <% @bookings.each do |booking| %>
-<div class="container">
+<div class="container all-abookings">
   <div class="card-booking-wrap">
     <div class="card-booking-table">
       <div class="inner-element">
@@ -44,11 +44,14 @@
           </p>
         </div>
         <div>
+<<<<<<< HEAD
+          <%= link_to 'Details', bookings_path , class: 'third-button' %>
+=======
           <%= link_to 'Details',  mover_booking_path , class: 'third-button' %>
+>>>>>>> master
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 <% end %>
