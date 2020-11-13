@@ -19,7 +19,6 @@ class MoversController < ApplicationController
     @mover = Mover.find(params[:id])
     @booking = Booking.new
     authorize @mover
-
   end
 
   def new
