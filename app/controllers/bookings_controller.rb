@@ -10,7 +10,11 @@ class BookingsController < ApplicationController
     #     lat: booking.latitude,
     #     infoWindow: render_to_string(partial: "infowindow", locals: { booking: booking }),
     #   }
+<<<<<<< HEAD
     # end
+=======
+    # end 
+>>>>>>> master
   end
 
   def show
@@ -41,9 +45,9 @@ class BookingsController < ApplicationController
     authorize @booking
 
     if @booking.update(booking_params)
-      redirect_to "/mover/bookings"
+      redirect_to mover_booking_path
     else
-      render "/mover/bookings"
+      render mover_booking_path
     end
   end
 
