@@ -19,14 +19,6 @@ class MoversController < ApplicationController
     @mover = Mover.find(params[:id])
     @booking = Booking.new
     authorize @mover
-    @markers = [
-      {
-        lat: @mover.latitude,
-        lng: @mover.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { mover: @mover }),
-        image_url: helpers.asset_url('https://img2.pngio.com/drawing-pin-world-map-logo-png-clipart-circle-computer-icons-map-pin-logo-png-728_724.jpg')
-      }
-    ]
   end
 
   def new

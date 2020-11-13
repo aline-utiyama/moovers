@@ -1,41 +1,37 @@
 <div class="container">
   <div class="row mover-main-card">
     <% if policy(Mover).show? %>
-    <div>
-      <div class="mover-info row justify-content-around align-items-center">
-        <div class="mover">
-          <img class="avatar-xlarge"
-            src="https://www.biography.com/.image/t_share/MTQ3NjM5MTEzMTc5MjEwODI2/eminem_photo_by_dave_j_hogan_getty_images_entertainment_getty_187596325.jpg">
-          <h2><%= @mover.user.name %></h2>
+      <div>
+        <div class="mover-info row justify-content-around align-items-center">
+          <div class="mover">
+            <img class="avatar-xlarge"
+              src="https://www.biography.com/.image/t_share/MTQ3NjM5MTEzMTc5MjEwODI2/eminem_photo_by_dave_j_hogan_getty_images_entertainment_getty_187596325.jpg">
+            <h2><%= @mover.user.name %></h2>
+          </div>
+          <div class="car-img">
+            <% if @mover.image.attached? %>
+            <%= cl_image_tag @mover.image.key %>
+            <% else %>
+            <img src="https://www.tciteam.com/wp-content/uploads/2017/04/Secure-Your-Load.jpg" alt="">
+            <% end %>
+          </div>
         </div>
-        <div class="car-img">
-          <% if @mover.image.attached? %>
-          <%= cl_image_tag @mover.image.key %>
-          <% else %>
-          <img src="https://www.tciteam.com/wp-content/uploads/2017/04/Secure-Your-Load.jpg" alt="">
-          <% end %>
+        <div class="mover-card">
+          <p><i class="fas fa-car"></i> Type of car: <%= @mover.type_of_car %> </p>
+          <p><i class="fas fa-map-marked-alt"> </i> Location: <%= @mover.address %></p>
+          <p><i class="fas fa-yen-sign"> </i> Price: ¥<%= @mover.price %></p>
+          <p><i class="fas fa-info-circle"> </i> Description: <%= @mover.description %></p>
+          <%# map  %>
+          <div id="map" style="width: 100%; height: 300px;" data-markers="<%= @markers.to_json %>"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+          <%# map %>
         </div>
-      </div>
-      <div class="mover-card">
-        <p><i class="fas fa-car"></i> Type of car: <%= @mover.type_of_car %> </p>
-        <p><i class="fas fa-map-marked-alt"> </i> Location: <%= @mover.address %></p>
-        <p><i class="fas fa-yen-sign"> </i> Price: ¥<%= @mover.price %></p>
-        <p><i class="fas fa-info-circle"> </i> Description: <%= @mover.description %></p>
-        <%# map  %>
-        <div id="map" style="width: 100%; height: 300px;" data-markers="<%= @markers.to_json %>"
-          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
-        <%# map %>
       </div>
       <div>
-
+        <%= render 'bookings/new' %>
       </div>
     </div>
+    <% end %>
   </div>
-
-  <div>
-    <%= render 'bookings/new' %>
-  </div>
-  <% end %>
-</div>
 </div>
