@@ -20,7 +20,7 @@
           <p><i class="fas fa-car"></i> Type of car: <%= @mover.type_of_car %> </p>
           <p><i class="fas fa-map-marked-alt"> </i> Location: <%= @mover.address %></p>
           <p><i class="fas fa-yen-sign"> </i> Price: ¥<%= @mover.price %></p>
-          <p><i class="fas fa-info-circle"> </i> Description: <%= @mover.description %></p>
+          <p><i class="fas fa-info-circle"> </i> Availability: <%= @mover.description %></p>
           <%# map  %>
           <div id="map" style="width: 100%; height: 300px;" data-markers="<%= @markers.to_json %>"
             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
