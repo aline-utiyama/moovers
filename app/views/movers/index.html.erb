@@ -1,3 +1,5 @@
+<h1>Find Movers around!</h1>
+
 <div class="container">
   <div>
     <%= form_with url: movers_path, method: :get, local: true do %>
@@ -6,7 +8,7 @@
       <%= select_tag :query, options_for_select(Mover::SIZE_OF_CARS, params[:query]),
         class: 'form-control', include_blank: "Car Size:"
       %>
-      <%= submit_tag "Search", class: 'third-button' %>
+    <%= submit_tag "Search", class: 'third-button' %>
     <% end %>
   </div>
   <div class="cards">
@@ -29,14 +31,19 @@
               <a><%= link_to 'Book', mover_path(mover, start_point: params[:start_point], end_point: params[:end_point]), class: 'main-button' %></a>
             <img src="https://www.biography.com/.image/t_share/MTQ3NjM5MTEzMTc5MjEwODI2/eminem_photo_by_dave_j_hogan_getty_images_entertainment_getty_187596325.jpg" class="card-trip-user avatar-bordered" />
           </div>
+          <a><%= link_to 'Book', mover_path(mover), class:'main-button'%></a>
+          <img
+            src="https://www.biography.com/.image/t_share/MTQ3NjM5MTEzMTc5MjEwODI2/eminem_photo_by_dave_j_hogan_getty_images_entertainment_getty_187596325.jpg"
+            class="card-trip-user avatar-bordered" />
         </div>
       </div>
-      <% if policy(mover).edit? %>
-        <td><%= link_to 'Edit', edit_mover_path(mover) %></td>
-      <% end %>
-      <% if policy(mover).destroy? %>
-        <td><%= link_to 'Destroy', mover, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
+    </div>
+    <% if policy(mover).edit? %>
+    <td><%= link_to 'Edit', edit_mover_path(mover) %></td>
+    <% end %>
+    <% if policy(mover).destroy? %>
+    <td><%= link_to 'Destroy', mover, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
     <% end %>
   </div>
 </div>
@@ -44,4 +51,3 @@
 <% if policy(Mover).new? %>
   <%link_to 'New Mover', new_mover_path %>
 <% end %>
-
