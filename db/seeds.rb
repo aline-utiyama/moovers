@@ -11,23 +11,25 @@ User.destroy_all
 Mover.destroy_all
 
 puts "Creating Users and Movers and Bookings..."
-50.times do
-  user = User.create!(
-    name: Faker::Name.name,
-    email: Faker::Internet.email,
-    password: "password",
-    address: Faker::Address.street_address ,
-  )
+# 50.times do
+#   user = User.create!(
+#     name: Faker::Name.name,
+#     email: Faker::Internet.email,
+#     password: "password",
+#     address: Faker::Address.street_address ,
+#   )
 
-  Mover.create!(
-    user: user,
-    name: Faker::Name.name,
-    # size_of_car: Mover::SIZE_OF_CARS.sample,
-    type_of_car: Faker::Vehicle.make_and_model,
-    description: Faker::ChuckNorris.fact,
-    price: Faker::Number.number(digits: 4),
-  )
-end
+#   Mover.create!(
+#     user: user,
+#     name: Faker::Vehicle.make_and_model,
+#     # size_of_car: Mover::SIZE_OF_CARS.sample,
+#     type_of_car: Mover::SIZE_OF_CARS.sample,
+#     description: Faker::ChuckNorris.fact,
+#     price: Faker::Number.number(digits: 4),
+#     address: Mover::ADDRESS.sample,
+#     image:
+#   )
+# end
 
  user = User.create!(
     name: "Sho",
@@ -35,42 +37,42 @@ end
     password: "password",
     address: Faker::Address.street_address,
   )
-  booking = Booking.create!(
-    user: user,
-    mover: Mover.all.sample,
-    date_time: DateTime.now + rand(5..10).days,
-    start_point:Faker::Address.street_address,
-    end_point:Faker::Address.street_address,
-    description: "description",
-  )
+  # booking = Booking.create!(
+  #   user: user,
+  #   mover: Mover.all.sample,
+  #   date_time: DateTime.now + rand(5..10).days,
+  #   start_point:Faker::Address.street_address,
+  #   end_point:Faker::Address.street_address,
+  #   description: "description",
+  # )
   user = User.create!(
     name: "Aline",
     email: "as.utiyama@gmail.com",
     password: "password",
     address: Faker::Address.street_address ,
   )
-  booking = Booking.create!(
-    user: user,
-    mover: Mover.all.sample,
-    date_time: DateTime.now + rand(5..10).days,
-    start_point:Faker::Address.street_address,
-    end_point:Faker::Address.street_address,
-    description: "description",
-  )
+  # booking = Booking.create!(
+  #   user: user,
+  #   mover: Mover.all.sample,
+  #   date_time: DateTime.now + rand(5..10).days,
+  #   start_point:Faker::Address.street_address,
+  #   end_point:Faker::Address.street_address,
+  #   description: "description",
+  # )
   user = User.create!(
     name: "Alex",
     email: "alexandre.ealimentos@gmail.com",
     password: "password",
     address: Faker::Address.street_address ,
   )
-  booking = Booking.create!(
-    user: user,
-    mover: Mover.all.sample,
-    date_time: DateTime.now + rand(5..10).days,
-    start_point:Faker::Address.street_address,
-    end_point:Faker::Address.street_address,
-    description: "description",
-  )
+  # booking = Booking.create!(
+  #   user: user,
+  #   mover: Mover.all.sample,
+  #   date_time: DateTime.now + rand(5..10).days,
+  #   start_point:Faker::Address.street_address,
+  #   end_point:Faker::Address.street_address,
+  #   description: "description",
+  # )
 
 
 puts "...Created #{User.count} users and #{Mover.count} movers and #{Booking.count} bookings"

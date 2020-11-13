@@ -4,7 +4,6 @@
      style="width: 100%; height: 600px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
 <p>Current User email: <%= current_user.email %></p>
 <p>Current User ID: <%= current_user.id %></p><% if policy(Mover).index? %>
   <%#= link_to "List all Movers", movers_path %>
@@ -14,16 +13,31 @@
 <h1>Find Movers around!</h1>
 
 <div class="container">
+  <div>
+    <%= form_with url: movers_path, method: :get, local: true do %>
+      <%= text_field_tag :start_point, params[:start_point], class: 'form-control', id: 'booking_start_point' , placeholder: "From:" %>
+      <%= text_field_tag :end_point , params[:end_point], class: 'form-control', id: 'booking_end_point', placeholder: "To:" %>
+      <%= select_tag :query, options_for_select(Mover::SIZE_OF_CARS, params[:query]),
+        class: 'form-control'
+      %>
+      <%= submit_tag "Search", class: 'third-button' %>
+    <% end %>
+  </div>
   <div class="cards">
     <% @movers.each do |mover| %>
       <div>
         <div class="card-trip">
-          <img src="https://www.tciteam.com/wp-content/uploads/2017/04/Secure-Your-Load.jpg" />
+          <% if mover.image.attached? %>
+            <%= cl_image_tag mover.image.key %>
+          <% else %>
+            <img src="https://www.tciteam.com/wp-content/uploads/2017/04/Secure-Your-Load.jpg" />
+          <% end %>
           <div class="card-trip-infos">
             <div>
-              <h2><%= mover.type_of_car %></h2><hr>
-              <h2><%= mover.address %></h2><hr>
-              <p style="margin-right: 12px"><strong><em>Driver</em></strong>: <%= mover.name %></p><br>
+              <h2><%= mover.name %></h2><hr>
+              <p><i class="fas fa-user-circle"></i></i> <%= mover.user.name %></p>
+              <p><i class="fas fa-map-marked-alt"></i> <%= mover.address %></p>
+              <br>
               <h2 class="card-trip-pricing">¥<%= mover.price %> / 10 km</h2>
             </div>
               <a><%= link_to 'Book', mover_path(mover), class:'main-button'%></a>
@@ -31,8 +45,6 @@
           </div>
         </div>
       </div>
-    
-    
       <% if policy(mover).edit? %>
         <td><%= link_to 'Edit', edit_mover_path(mover) %></td>
       <% end %>
@@ -41,12 +53,9 @@
       <% end %>
     <% end %>
   </div>
-</div>  
+</div>
 
 <% if policy(Mover).new? %>
   <%= link_to 'New Mover', new_mover_path %>
 <% end %>
 
-<hr>
-
-<hr>
