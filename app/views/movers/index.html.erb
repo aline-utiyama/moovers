@@ -1,5 +1,9 @@
 <p id="notice"><%#= notice %></p>
 <%# <h1>Lisf of Movers</h1> %>
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 <p>Current User email: <%= current_user.email %></p>
 <p>Current User ID: <%= current_user.id %></p><% if policy(Mover).index? %>
   <%#= link_to "List all Movers", movers_path %>
@@ -52,5 +56,6 @@
 </div>
 
 <% if policy(Mover).new? %>
-  <% link_to 'New Mover', new_mover_path %>
+  <%= link_to 'New Mover', new_mover_path %>
 <% end %>
+
