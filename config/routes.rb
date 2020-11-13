@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   end
 
   namespace :mover do
-    resources :bookings, only: [:index, :update]
+    # resources :bookings, only: [:index, :update]\
+    get "bookings", to: "bookings#index", as: "booking"
   end
 
   resources :bookings, only: [:index, :update]
