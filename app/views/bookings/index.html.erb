@@ -1,54 +1,62 @@
 <h1>All Bookings </h1>
 
-<% @bookings.each do |booking| %>
-<div class="container">
-  <div class="card-booking-wrap">
-    <div class="card-booking-table">
-      <div class="inner-element">
-        <p>
-          <div class="label">Date: </div><strong><%= booking.date_time&.strftime("%b %e, %l:%M %p") %></strong>
-        </p>
-      </div>
-      <div class="inner-element">
-        <p class="status-button"><%= booking.status %></p>
-      </div>
-    </div>
-    <div class="destination">
-      <p>
-        <div class="label">From: </div><strong><%= booking.start_point %></strong>
-      </p>
-      <p>
-        <div class="label">To: </div><strong><%= booking.end_point %></strong>
-      </p>
-      <%# map  %>
-      <div id="map" style="width: 100%; height: 300px;" data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
-      <%# map %>
-    </div>
-    <div class="card-inner-table">
-      <div class="card-image-wrap">
-        <img src="https://www.tciteam.com/wp-content/uploads/2017/04/Secure-Your-Load.jpg">
-      </div>
-      <div class="card-info">
-        <div class="mover-info">
-          <h5><%= booking.mover.name %></h5>
+
+<div class="booking-board">
+  <div class="booking-grid">
+    <% @bookings.each do |booking| %>
+    <div class="container">
+      <div class="card-booking-wrap">
+        <div class="card-booking-table">
+          <div class="inner-element">
+            <p>
+              <div class="label">Date: </div><strong><%= booking.date_time&.strftime("%b %e, %l:%M %p") %></strong>
+            </p>
+          </div>
+          <div class="inner-element">
+            <p class="status-button"><%= booking.status %></p>
+          </div>
+        </div>
+        <div class="destination">
           <p>
-            <div class="label">Type of car: </div><strong><%= booking.mover.type_of_car %></strong>
+            <div class="label">From: </div><strong><%= booking.start_point %></strong>
           </p>
           <p>
-            <div class="label">Price: </div><strong>¥<%= booking.mover.price %></strong>
-          </p>
-          <p>
-            <div class="label">Description: </div><%= booking.mover.description %>
+            <div class="label">To: </div><strong><%= booking.end_point %></strong>
           </p>
         </div>
-        <div>
-          <%= link_to 'Details',  mover_booking_path , class: 'third-button' %>
+        <div class="card-inner-table">
+          <div class="card-image-wrap">
+            <img src="https://www.tciteam.com/wp-content/uploads/2017/04/Secure-Your-Load.jpg">
+          </div>
+          <div class="card-info">
+            <div class="mover-info">
+              <h5><%= booking.mover.name %></h5>
+              <p>
+                <div class="label">Type of car: </div><strong><%= booking.mover.type_of_car %></strong>
+              </p>
+              <p>
+                <div class="label">Price: </div><strong>¥<%= booking.mover.price %></strong>
+              </p>
+              <p>
+                <div class="label">Description: </div><%= booking.mover.description %>
+              </p>
+            </div>
+            <div>
+              <%= link_to 'Details',  mover_booking_path , class: 'third-button' %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
+    <% end %>
   </div>
+
+  <%# map  %>
+  <%# <div class="map-container"> %>
+  <div id="map" style="width: 100%; height: 100vh; position:sticky; top: 100px;" data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+  <%# </div> %>
+  <%# map %>
 </div>
-</div>
-<% end %>

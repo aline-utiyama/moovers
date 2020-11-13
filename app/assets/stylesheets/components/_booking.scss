@@ -1,0 +1,14 @@
+.booking-board {
+  display: flex;
+  .map-container {
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    width: 600px;
+
+  }
+  .booking-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
