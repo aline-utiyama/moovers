@@ -17,23 +17,24 @@
           </div>
         </div>
         <div class="destination">
+
+      <p>
+        <div class="label">From: </div><strong><%= booking.start_point %></strong>
+      </p>
+      <p>
+        <div class="label">To: </div><strong><%= booking.end_point %></strong>
+      </p>
+    </div>
+    <div class="card-inner-table">
+      <div class="card-image-wrap">
+        <img src="https://www.tciteam.com/wp-content/uploads/2017/04/Secure-Your-Load.jpg">
+      </div>
+      <div class="card-info">
+        <div class="mover-info">
+          <h5><%= booking.mover.name %></h5>
           <p>
-            <div class="label">From: </div><strong><%= booking.start_point %></strong>
+            <div class="label">Type of car: </div><strong><%= booking.mover.type_of_car %></strong>
           </p>
-          <p>
-            <div class="label">To: </div><strong><%= booking.end_point %></strong>
-          </p>
-        </div>
-        <div class="card-inner-table">
-          <div class="card-image-wrap">
-            <img src="https://www.tciteam.com/wp-content/uploads/2017/04/Secure-Your-Load.jpg">
-          </div>
-          <div class="card-info">
-            <div class="mover-info">
-              <h5><%= booking.mover.name %></h5>
-              <p>
-                <div class="label">Type of car: </div><strong><%= booking.mover.type_of_car %></strong>
-              </p>
               <p>
                 <div class="label">Price: </div><strong>¥<%= booking.mover.price %></strong>
               </p>
@@ -45,7 +46,7 @@
               <%= link_to 'Details',  mover_booking_path , class: 'third-button' %>
             </div>
           </div>
-        </div>
+        
       </div>
     </div>
 

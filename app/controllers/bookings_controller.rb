@@ -11,6 +11,7 @@ class BookingsController < ApplicationController
         # infoWindow: render_to_string(partial: "infowindow", locals: { booking: booking }),
       }
     end 
+
   end
 
   def show
