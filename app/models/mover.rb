@@ -5,4 +5,8 @@ class Mover < ApplicationRecord
   validates :name, :type_of_car, :description, :price, presence: true
   SIZE_OF_CARS = ['Small', 'Medium', 'Large', 'XLarge']
   CARS = ['2021 Acura RDX', 'Dodge Challenger', 'Infiniti QX80,', 'Toyota, monster truck', 'Cadillac Escalade ESV', 'Cargo Van', 'Ford Transit Wagon']
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+  
 end

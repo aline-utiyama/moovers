@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_09_073219) do
+ActiveRecord::Schema.define(version: 2020_11_13_015505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,10 @@ ActiveRecord::Schema.define(version: 2020_11_09_073219) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "start_latitude"
+    t.float "start_longitude"
+    t.float "end_latitude"
+    t.float "end_longitude"
     t.index ["mover_id"], name: "index_bookings_on_mover_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -37,6 +41,9 @@ ActiveRecord::Schema.define(version: 2020_11_09_073219) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "latitude"
+    t.float "longitude"
+    t.string "address"
     t.index ["user_id"], name: "index_movers_on_user_id"
   end
 
