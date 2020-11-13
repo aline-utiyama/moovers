@@ -11,6 +11,8 @@
 <div class="container">
   <div>
     <%= form_with url: movers_path, method: :get, local: true do %>
+      <%= text_field_tag :start_point, params[:start_point], class: 'form-control', id: 'booking_start_point' , placeholder: "From:" %>
+      <%= text_field_tag :end_point , params[:end_point], class: 'form-control', id: 'booking_end_point', placeholder: "To:" %>
       <%= select_tag :query, options_for_select(Mover::SIZE_OF_CARS, params[:query]),
         class: 'form-control'
       %>
