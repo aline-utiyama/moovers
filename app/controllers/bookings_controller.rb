@@ -4,13 +4,13 @@ class BookingsController < ApplicationController
     @bookings = policy_scope(Booking).order(created_at: :desc)
     @booking = policy_scope(Booking)
 
-    @markers = @bookings.map do |booking|
-      {
-        lng: booking.longitude,
-        lat: booking.latitude,
-        infoWindow: render_to_string(partial: "infowindow", locals: { booking: booking }),
-      }
-    end 
+    # @markers = @bookings.map do |booking|
+    #   {
+    #     lng: booking.longitude,
+    #     lat: booking.latitude,
+    #     infoWindow: render_to_string(partial: "infowindow", locals: { booking: booking }),
+    #   }
+    # end
   end
 
   def show

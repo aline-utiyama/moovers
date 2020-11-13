@@ -1,8 +1,8 @@
 <div class="booking-form">
   <%= simple_form_for [@mover, @booking] do |f| %>
   <%= f.input :date_time, html5: true %>
-  <%= f.input :start_point %>
-  <%= f.input :end_point %>
+  <%= f.input :start_point, input_html: { value: params[:start_point]} %>
+  <%= f.input :end_point, input_html: { value: params[:end_point]}  %>
   <%= f.input :description %>
   <%= f.submit class: 'main-button' %>
 <% end %>

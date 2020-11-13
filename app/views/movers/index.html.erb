@@ -1,13 +1,10 @@
-<p id="notice"><%#= notice %></p>
+<!-- <p id="notice"><%#= notice %></p> -->
 <%# <h1>Lisf of Movers</h1> %>
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-<p>Current User email: <%= current_user.email %></p>
-<p>Current User ID: <%= current_user.id %></p><% if policy(Mover).index? %>
+
+<!-- <p>Current User email: <%= current_user.email %></p>
+<p>Current User ID: <%= current_user.id %></p><%# if policy(Mover).index? %> -->
   <%#= link_to "List all Movers", movers_path %>
-<% end %>
+<%# end %>
 
 <p id="notice"><%= notice %></p>
 <h1>Find Movers around!</h1>
@@ -18,7 +15,7 @@
       <%= text_field_tag :start_point, params[:start_point], class: 'form-control', id: 'booking_start_point' , placeholder: "From:" %>
       <%= text_field_tag :end_point , params[:end_point], class: 'form-control', id: 'booking_end_point', placeholder: "To:" %>
       <%= select_tag :query, options_for_select(Mover::SIZE_OF_CARS, params[:query]),
-        class: 'form-control'
+        class: 'form-control', include_blank: "Car Size:"
       %>
       <%= submit_tag "Search", class: 'third-button' %>
     <% end %>
@@ -40,7 +37,7 @@
               <br>
               <h2 class="card-trip-pricing">¥<%= mover.price %> / 10 km</h2>
             </div>
-              <a><%= link_to 'Book', mover_path(mover), class:'main-button'%></a>
+              <a><%= link_to 'Book', mover_path(mover, start_point: params[:start_point], end_point: params[:end_point]), class: 'main-button' %></a>
             <img src="https://www.biography.com/.image/t_share/MTQ3NjM5MTEzMTc5MjEwODI2/eminem_photo_by_dave_j_hogan_getty_images_entertainment_getty_187596325.jpg" class="card-trip-user avatar-bordered" />
           </div>
         </div>
@@ -56,6 +53,6 @@
 </div>
 
 <% if policy(Mover).new? %>
-  <%= link_to 'New Mover', new_mover_path %>
+  <%link_to 'New Mover', new_mover_path %>
 <% end %>
 
