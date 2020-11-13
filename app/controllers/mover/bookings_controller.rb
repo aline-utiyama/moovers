@@ -4,9 +4,6 @@ class Mover::BookingsController < ApplicationController
     @booking = policy_scope(Booking)
   end
 
-  def update
-    @booking = Booking.find(params[:id])
-  end
 
 
 end

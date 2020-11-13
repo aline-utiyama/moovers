@@ -4,13 +4,13 @@ class BookingsController < ApplicationController
     @bookings = policy_scope(Booking).order(created_at: :desc)
     @booking = policy_scope(Booking)
 
-    @markers = @bookings.map do |booking|
-      {
-        lng: booking.longitude,
-        lat: booking.latitude,
-        infoWindow: render_to_string(partial: "infowindow", locals: { booking: booking }),
-      }
-    end 
+    # @markers = @bookings.map do |booking|
+    #   {
+    #     lng: booking.longitude,
+    #     lat: booking.latitude,
+    #     infoWindow: render_to_string(partial: "infowindow", locals: { booking: booking }),
+    #   }
+    # end 
   end
 
   def show
@@ -41,9 +41,9 @@ class BookingsController < ApplicationController
     authorize @booking
 
     if @booking.update(booking_params)
-      redirect_to "/mover/bookings"
+      redirect_to mover_booking_path
     else
-      render "/mover/bookings"
+      render mover_booking_path
     end
   end
 
