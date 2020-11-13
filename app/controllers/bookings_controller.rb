@@ -10,11 +10,11 @@ class BookingsController < ApplicationController
     #     lat: booking.latitude,
     #     infoWindow: render_to_string(partial: "infowindow", locals: { booking: booking }),
     #   }
-<<<<<<< HEAD
+
     # end
-=======
-    # end 
->>>>>>> master
+
+    # end
+
   end
 
   def show
