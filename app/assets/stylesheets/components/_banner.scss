@@ -1,12 +1,18 @@
 .banner {
-  background-image: url("https://images.unsplash.com/photo-1513880989635-6eb491ce7f5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80");
+  // background-image: url("https://images.unsplash.com/photo-1513880989635-6eb491ce7f5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80");
+  // background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
   background-size: cover;
   background-position: center;
   max-width: 100%;
   padding: 150px 0;
   align-items: center;
   justify-content: center;
-  margin-top: 56px;
+  height: 460px;
+}
+
+.banner-info {
+  color: #fff;
+  text-align: center;
 }
 
 .banner h1 {
@@ -16,7 +22,6 @@
   font-size: 56px;
   font-weight: bold;
   justify-content: center;
-  text-align:center;
 }
 
 .banner h2{

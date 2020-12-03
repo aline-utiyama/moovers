@@ -5,14 +5,14 @@
         <div class="mover-info row justify-content-around align-items-center">
           <div class="mover">
             <img class="avatar-xlarge"
-              src="https://www.biography.com/.image/t_share/MTQ3NjM5MTEzMTc5MjEwODI2/eminem_photo_by_dave_j_hogan_getty_images_entertainment_getty_187596325.jpg">
+              src="https://www.spiritmarine.com.br/wp-content/uploads/2020/02/iconfinder_male_628288.png">
             <h2><%= @mover.user.name %></h2>
           </div>
           <div class="car-img">
             <% if @mover.image.attached? %>
-            <%= cl_image_tag @mover.image.key %>
+              <%= cl_image_tag @mover.image.key %>
             <% else %>
-            <img src="https://www.tciteam.com/wp-content/uploads/2017/04/Secure-Your-Load.jpg" alt="">
+              <img src="https://www.tciteam.com/wp-content/uploads/2017/04/Secure-Your-Load.jpg" alt="">
             <% end %>
           </div>
         </div>
@@ -32,6 +32,6 @@
         <%= render 'bookings/new' %>
       </div>
     </div>
-    <% end %>
-  </div>
+  <% end %>
+</div>
 </div>
