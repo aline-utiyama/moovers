@@ -24,6 +24,7 @@
 .card-feature {
   background-color: white;
   background-size: cover;
+  width: 400px;
   height: 240px;
   display: flex;
   flex-direction: column;
@@ -42,10 +43,12 @@
 
 
 
-.cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+.home-cards {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 62px 0;
+  // grid-template-columns: 1fr 1fr 1fr;
+  // grid-gap: 16px;
 }
 
 .feature-1 {
