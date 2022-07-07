@@ -32,7 +32,7 @@ Rails.application.configure do
   config.active_storage.service = :cloudinary
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
@@ -52,6 +52,41 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
+
+  # 1. --------from stack overflow
+
+config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.perform_deliveries = true
+config.action_mailer.raise_delivery_errors = true
+config.action_mailer.default :charset => "utf-8"
+
+
+ActionMailer::Base.smtp_settings = {
+:address => "smtp.gmail.com",
+:port => 587,
+:authentication => :plain,
+:domain => 'xyz@gmail.com',
+:user_name => 'xyz@gmail.com',
+:password => 'abcde',
+ }
+
+# solution from stack overflow
+
+  #don't send emails in development
+  # ++++++++++
+  config.action_mailer.perform_deliveries = false
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :address              => "smtp.gmail.com",
+      :port                 => 587,
+      :user_name            => '<login>',
+      :password             => '<password>',
+      :authentication       => 'plain',
+      :enable_starttls_auto => true  }
+  # +++++++++++++
+  # 1.-------- END
 
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
